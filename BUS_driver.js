@@ -24,8 +24,7 @@ function sendNotification(message) {
 {
     type : "get" | "loop",
     stops : [],
-    routeName : name | null,
-    route : RouteId | null,
+    route : Route name, bus format ie cc or ec | null,
     testing : true | false
 
 }
@@ -62,30 +61,32 @@ if (ARGS.testing) { //testing--------------------------
 } else if (ARGS.type == "get") { //determining action to perform
     if (ARGS.stops.length == 0) {
         sendNotification('stops list empty bozo');
-    } else if (ARGS.route == undefined) { //action getting stops and all routes on stop
+    } else if (ARGS.route == undefined) { //ALL      action getting stops and all routes on stop
         let str = '';
         for (let i = 0; i < ARGS.stops.length; i++) {
-            str = str + STOPS[ARGS.stops[i]] + "\n";
+            str = str + STOPS[ARGS.stops[i]] + ":" + "\n";
             let request = new Request(BUS.urlMaker(ARGS.stops[i]));
             let r = await request.loadJSON().then(json => {
                 str = str + BUS.getAllArrivals(json);
             }
             );
+            str = str + "\n";
         }
         sendNotification(str);
 
-    } else { //actions getting stops but only specified route
+    } else { //SPECIFIC      actions getting stops but only specified route
         if (ROUTES[ARGS.route] == undefined) {
             sendNotification("nonexistent route bozo");
         } else {
             let str = '';
             for (let i = 0; i < ARGS.stops.length; i++) {
-                str = str + STOPS[ARGS.stops[i]] + "\n";
+                str = str + STOPS[ARGS.stops[i]] + ":" + "\n";
                 let request = new Request(BUS.urlMaker(ARGS.stops[i]));
                 let r = await request.loadJSON().then(json => {
-                    str = str + BUS.getArrivals(json, ARGS.route);
+                    str = str + BUS.getArrivals(json, ROUTES[ARGS.route]);
                 }
                 );
+                str = str + "\n";
             }
             sendNotification(str);
         }

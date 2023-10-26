@@ -14,13 +14,12 @@ const ROUTES = {
     "HS": 2611, //health science
     "INTERSESSION": 5675, //?
     "M": 2607, //millidge ave
-    "NC": 2616, //night campus
+    "NC": 18724, //night campus
     "NSC": 4919, //north south connector
     "P&R": 4916, //park and ride
-    "PM": 2615, //prince millidge
+    "PM": 20156, //prince millidge
     "VM": 2613, //vet med
-    "WEEKENDER": 2620, //weekender
-    "WS": 20233, //weekender south ?maybe 
+    "WS": 20233, //weekender south 
     "WN": 20056, //weekender north
     "W": 4913 //west campus
 }
@@ -44,7 +43,7 @@ const STOPS = {
     "2737291" : "Myers Quad",
     "2737295" : "Stegeman Coliseum",
     "2737298" : "Aderhold Hall (to East Campus Rd.)",
-    "2737315" : "Joe Frank Harris Commons",
+    "2737315" : "JOE momma",
     "2737316" : "University Health Center",
     "2737324" : "Building H",
     "2737329" : "Brandon Oaks",
