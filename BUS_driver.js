@@ -1,6 +1,6 @@
 // Variables used by Scriptable.
 // These must be at the very top of the file. Do not edit.
-// icon-color: deep-brown; icon-glyph: magic;
+// icon-color: yellow; icon-glyph: bus-alt;
 const BUS_CONSTANTS = importModule("BUS_CONSTANTS.js")
 const BUS = importModule("BUS_methods.js");
 
@@ -48,8 +48,8 @@ if (ARGS.testing) { //testing--------------------------
         );
     }
     sendNotification("testing");
-    sendNotification(str);
-
+    //sendNotification(str);
+    Script.setShortcutOutput(str);
 
 
 
@@ -72,7 +72,9 @@ if (ARGS.testing) { //testing--------------------------
             );
             str = str + "\n";
         }
-        sendNotification(str);
+        //sendNotification(str);
+        Script.setShortcutOutput(str); //shortcut app shows output instead of notificaiton cuz there is character limit
+
 
     } else { //SPECIFIC      actions getting stops but only specified route
         if (ROUTES[ARGS.route] == undefined) {
@@ -88,10 +90,12 @@ if (ARGS.testing) { //testing--------------------------
                 );
                 str = str + "\n";
             }
-            sendNotification(str);
+            //sendNotification(str);
+            Script.setShortcutOutput(str); //shortcut app shows output instead of notificaiton cuz there is character limit
+
         }
     }
-//-----------------------------------------------------------------------------
+    //-----------------------------------------------------------------------------
 
 } else if (ARGS.type == 'loop') { //loop reminder- inprogress
     if (stops.length == 0) {

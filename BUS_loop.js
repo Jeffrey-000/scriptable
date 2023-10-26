@@ -1,6 +1,6 @@
 // Variables used by Scriptable.
 // These must be at the very top of the file. Do not edit.
-// icon-color: deep-gray; icon-glyph: magic;
+// icon-color: yellow; icon-glyph: bus-alt;
 const BUS_CONSTANTS = importModule("BUS_CONSTANTS.js");
 
 const ROUTE = BUS_CONSTANTS.ROUTE;
